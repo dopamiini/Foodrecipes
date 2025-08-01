@@ -1,8 +1,6 @@
 # Foodrecipes
 
-A food recipe app for the course <a href="https://hy-tikawe.github.io/materiaali/">tikawe</a>.
-
-The app should allow users to share recipes. Each recipe should include the needed ingredients and cooking instructions.
+A food recipe app for the course <a href="https://hy-tikawe.github.io/materiaali/">tikawe</a>. The app should allow users to share recipes. Each recipe should include the needed ingredients and cooking instructions.
 
 Requirements:
 
