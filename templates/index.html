@@ -10,13 +10,16 @@
 
   {% if session.username %}
   <p>
-    You are signed in as {{ session.username }}
+    You are signed in as {{ session.username }}, your id number is {{ session.user_id }}
   </p>
   {% endif %}
   <p>
     <a href="/login">Login</a>
     <a href="/register">Register</a>
     <a href="/logout">Logout</a>
+  </p>
+  <p>
+    <a href="/new_recipe">Add Recipe</a>
   </p>
 </body>
 
