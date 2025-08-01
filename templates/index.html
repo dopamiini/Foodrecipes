@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Food recipes</title>
+</head>
+
+<body>
+  <h1>Food recipes</h1>
+
+  {% if session.username %}
+  <p>
+    You are signed in as {{ session.username }}
+  </p>
+  {% endif %}
+  <p>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    <a href="/logout">Logout</a>
+  </p>
+</body>
+
+</html>
