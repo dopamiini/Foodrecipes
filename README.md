@@ -5,7 +5,7 @@ A food recipe app for the course <a href="https://hy-tikawe.github.io/materiaali
 Requirements:
 
 * The user can register an account, login to the app, and logout of the app. ✅
-* Käyttäjä pystyy lisäämään reseptejä ja muokkaamaan ja poistamaan niitä.
+* The user can add recipes to the app, as well as edit and remove their own recipes. ✅
 * The user can see all recipes added to the app. ✅
 * Käyttäjä pystyy etsimään reseptejä hakusanalla.
 * Käyttäjäsivu näyttää, montako reseptiä käyttäjä on lisännyt ja listan käyttäjän lisäämistä resepteistä.
