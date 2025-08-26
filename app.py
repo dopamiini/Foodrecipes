@@ -30,14 +30,27 @@ def new_recipe():
 @app.route("/create_recipe", methods=["POST"])
 def create_recipe():
     title = request.form["title"]
-    description = request.form["description"]
+    notes = request.form["notes"]
     ingredients = request.form["ingredients"]
     instructions = request.form["instructions"]
     user_id = session["user_id"]
-
-    recipes.add_recipe(title, description, ingredients, instructions, user_id)
-
+    recipes.add_recipe(title, notes, ingredients, instructions, user_id)
     return redirect("/")
+
+@app.route("/edit_recipe/<int:recipe_id>")
+def edit_recipe(recipe_id):
+    recipe = recipes.get_recipe(recipe_id)
+    return render_template("edit_recipe.html", recipe=recipe)
+
+@app.route("/update_recipe", methods=["POST"])
+def update_recipe():
+    recipe_id = request.form["recipe_id"]
+    title = request.form["title"]
+    notes = request.form["notes"]
+    ingredients = request.form["ingredients"]
+    instructions = request.form["instructions"]
+    recipes.update_recipe(recipe_id, title, notes, ingredients, instructions)
+    return redirect("/recipe/" + str(recipe_id))
 
 @app.route("/register")
 def register():
@@ -51,13 +64,11 @@ def create():
     if password1 != password2:
         return "Error: the passwords did not match."
     password_hash = generate_password_hash(password1)
-
     try:
         sql = "INSERT INTO users (username, password_hash) VALUES (?, ?)"
         db.execute(sql, [username, password_hash])
     except sqlite3.IntegrityError:
         return "Error: username is already taken."
-
     return "Account has been created."
 
 @app.route("/login", methods=["GET", "POST"])
@@ -71,7 +82,6 @@ def login():
         result = db.query(sql, [username])[0]
         user_id = result["id"]
         password_hash = result["password_hash"]
-
         if check_password_hash(password_hash, password):
             session["user_id"] = user_id
             session["username"] = username
