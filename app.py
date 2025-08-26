@@ -15,7 +15,13 @@ def active_session():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    all_recipes = recipes.get_recipes()
+    return render_template("index.html", recipes=all_recipes)
+
+@app.route("/recipe/<int:recipe_id>")
+def show_recipe(recipe_id):
+    recipe = recipes.get_recipe(recipe_id)
+    return render_template("show_recipe.html", recipe=recipe)
 
 @app.route("/new_recipe")
 def new_recipe():
