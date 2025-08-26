@@ -2,7 +2,7 @@
 
 A food recipe app for the course <a href="https://hy-tikawe.github.io/materiaali/">tikawe</a>. The app should allow users to share recipes. Each recipe should include the needed ingredients and cooking instructions.
 
-Requirements:
+Basic requirements:
 
 * The user can register an account, login to the app, and logout of the app. ✅
 * The user can add recipes to the app, as well as edit and remove their own recipes. ✅
